@@ -31,8 +31,7 @@ inquirer.prompt([
     }
 ])
 .then(({text,textcolor,shape,shapecolor}) => {
-    console.log(text,textcolor)
-    const svgdata= new Shapes((this.text,this.textcolor,this.shape,this.shapecolor));
+    const svgdata= new Shapes(text,textcolor,shape,shapecolor);
     const data = svgdata.render();
     fs.writeFile(filename, data, (err) =>
     err ? console.log(err) : console.log('Successfully created SVG file!'));
