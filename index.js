@@ -30,9 +30,9 @@ inquirer.prompt([
         message: 'Please enter a color for the shape: '
     }
 ])
-.then((answers) => {
-    console.log(answers);
-    const svgdata= new Shapes(answers);
+.then(({text,textcolor,shape,shapecolor}) => {
+    console.log(text,textcolor)
+    const svgdata= new Shapes((this.text,this.textcolor,this.shape,this.shapecolor));
     const data = svgdata.render();
     fs.writeFile(filename, data, (err) =>
     err ? console.log(err) : console.log('Successfully created SVG file!'));
