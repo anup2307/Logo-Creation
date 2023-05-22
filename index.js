@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs= require('fs');
-const Shapes = require('./lib/shapes.js');
-const filename = './examples/logo2.svg';
+const {Shapes} = require('./lib/shapes.js');
+const filename = './examples/logo.svg';
 
 function prompt(){
      inquirer.prompt([
@@ -33,7 +33,7 @@ function prompt(){
     ])
     .then(({text,textcolor,shape,shapecolor}) => {
         if (text.length > 3){
-            Console.log("Please enter only 3 characters as text");
+            console.log("Please enter only 3 characters as text");
             return prompt();
         }else{
             const svgtext = text.toUpperCase();
